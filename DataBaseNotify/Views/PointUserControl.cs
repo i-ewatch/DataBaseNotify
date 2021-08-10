@@ -27,6 +27,10 @@ namespace DataBaseNotify.Views
         /// </summary>
         private string TableName { get; set; }
         /// <summary>
+        /// 欄位名稱
+        /// </summary>
+        private string FieldName { get; set; }
+        /// <summary>
         /// 錯誤視窗
         /// </summary>
         private FlyoutAction action { get; set; } = new FlyoutAction();
@@ -603,6 +607,7 @@ namespace DataBaseNotify.Views
                 MinFlag = Convert.ToBoolean(AIgridView.GetRowCellValue(FocusAIIndex, "MinFlag")),
                 Group = aigroup
             };
+            FieldName = $"{AIgridView.GetRowCellValue(FocusAIIndex, "FieldName")}";
             if (AIGroupcheckedComboBoxEdit.Properties.Items.Count > 0)
             {
                 for (int i = 0; i < AIGroupcheckedComboBoxEdit.Properties.Items.Count; i++)
@@ -618,21 +623,20 @@ namespace DataBaseNotify.Views
                         var Table = IPdata.DataSheets.SingleOrDefault(g => g.DataSheetName == TableName);
                         if (Table != null)
                         {
-                            foreach (var AIitem in Table.AIs)
+                            var AIitem = Table.AIs.SingleOrDefault(g => g.FieldName == FieldName);
+                            if (AIitem.Group != null)
                             {
-                                if (AIitem.Group != null)
+                                foreach (var groupitem in AIitem.Group)
                                 {
-                                    foreach (var groupitem in AIitem.Group)
+                                    var data = aIs.SingleOrDefault(s => s.Index == groupitem);
+                                    if (data != null)
                                     {
-                                        var data = aIs.SingleOrDefault(s => s.Index == groupitem);
-                                        if (data != null)
-                                        {
-                                            int index = aIs.IndexOf(data);
-                                            AIGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
-                                        }
+                                        int index = aIs.IndexOf(data);
+                                        AIGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
                                     }
                                 }
                             }
+
                         }
                     }
                 }
@@ -652,15 +656,16 @@ namespace DataBaseNotify.Views
             string[] digroup = DIgridView.GetRowCellValue(FocusDIIndex, "Group") as string[];
             FocusDI = new DI()
             {
-                AlarmFlag = Convert.ToBoolean(DIgridView.GetRowCellValue(FocusAIIndex, "AlarmFlag")),
-                FieldName = $"{DIgridView.GetRowCellValue(FocusAIIndex, "FieldName")}",
-                ShowName = $"{DIgridView.GetRowCellValue(FocusAIIndex, "ShowName")}",
-                FieldNum = Convert.ToInt32(DIgridView.GetRowCellValue(FocusAIIndex, "FieldNum")),
+                AlarmFlag = Convert.ToBoolean(DIgridView.GetRowCellValue(FocusDIIndex, "AlarmFlag")),
+                FieldName = $"{DIgridView.GetRowCellValue(FocusDIIndex, "FieldName")}",
+                ShowName = $"{DIgridView.GetRowCellValue(FocusDIIndex, "ShowName")}",
+                FieldNum = Convert.ToInt32(DIgridView.GetRowCellValue(FocusDIIndex, "FieldNum")),
                 GeneralFlag = Convert.ToBoolean(DIgridView.GetRowCellValue(FocusDIIndex, "GeneralFlag")),
                 ResetFlag = Convert.ToBoolean(DIgridView.GetRowCellValue(FocusDIIndex, "ResetFlag")),
                 Message = $"{DIgridView.GetRowCellValue(FocusDIIndex, "Message")}",
                 Group = digroup
             };
+            FieldName = $"{DIgridView.GetRowCellValue(FocusDIIndex, "FieldName")}";
             if (DIGroupcheckedComboBoxEdit.Properties.Items.Count > 0)
             {
                 for (int i = 0; i < DIGroupcheckedComboBoxEdit.Properties.Items.Count; i++)
@@ -676,23 +681,22 @@ namespace DataBaseNotify.Views
                         var Table = IPdata.DataSheets.SingleOrDefault(g => g.DataSheetName == TableName);
                         if (Table != null)
                         {
-                            foreach (var DIitem in Table.DIs)
+                            var DIitem = Table.DIs.SingleOrDefault(g => g.FieldName == FieldName);
+                            if (DIitem.Group != null)
                             {
-                                if (DIitem.Group != null)
+                                foreach (var groupitem in DIitem.Group)
                                 {
-                                    foreach (var groupitem in DIitem.Group)
+                                    var data = dIs.SingleOrDefault(s => s.Index == groupitem);
+                                    if (data != null)
                                     {
-                                        var data = dIs.SingleOrDefault(s => s.Index == groupitem);
-                                        if (data != null)
-                                        {
-                                            int index = dIs.IndexOf(data);
-                                            DIGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
-                                        }
+                                        int index = dIs.IndexOf(data);
+                                        DIGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
                                     }
                                 }
                             }
                         }
                     }
+
                 }
             }
         }
@@ -701,20 +705,21 @@ namespace DataBaseNotify.Views
         #region Enums更新聚焦數值
         private void Change_EnumsText()
         {
-            EnumstoggleSwitch.IsOn = Convert.ToBoolean(EnumsgridView.GetRowCellValue(FocusDIIndex, "AlarmFlag"));
-            EnumsDeviceNamelabelControl.Text = $"點位名稱 : {EnumsgridView.GetRowCellValue(FocusDIIndex, "FieldName")}";
-            EnumsNametextEdit.Text = $"{EnumsgridView.GetRowCellValue(FocusDIIndex, "ShowName")}";
-            EnumsDescribetextEdit.Text = $"{EnumsgridView.GetRowCellValue(FocusDIIndex, "EnumsDescribe")}";
-            string[] digroup = EnumsgridView.GetRowCellValue(FocusDIIndex, "Group") as string[];
+            EnumstoggleSwitch.IsOn = Convert.ToBoolean(EnumsgridView.GetRowCellValue(FocusEnumsIndex, "AlarmFlag"));
+            EnumsDeviceNamelabelControl.Text = $"點位名稱 : {EnumsgridView.GetRowCellValue(FocusEnumsIndex, "FieldName")}";
+            EnumsNametextEdit.Text = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "ShowName")}";
+            EnumsDescribetextEdit.Text = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "EnumsDescribe")}";
+            string[] digroup = EnumsgridView.GetRowCellValue(FocusEnumsIndex, "Group") as string[];
             FocusEnums = new Enumses()
             {
-                AlarmFlag = Convert.ToBoolean(EnumsgridView.GetRowCellValue(FocusAIIndex, "AlarmFlag")),
-                FieldName = $"{EnumsgridView.GetRowCellValue(FocusAIIndex, "FieldName")}",
-                ShowName = $"{EnumsgridView.GetRowCellValue(FocusAIIndex, "ShowName")}",
-                FieldNum = Convert.ToInt32(EnumsgridView.GetRowCellValue(FocusAIIndex, "FieldNum")),
-                EnumsDescribe = $"{EnumsgridView.GetRowCellValue(FocusDIIndex, "EnumsDescribe")}",
+                AlarmFlag = Convert.ToBoolean(EnumsgridView.GetRowCellValue(FocusEnumsIndex, "AlarmFlag")),
+                FieldName = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "FieldName")}",
+                ShowName = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "ShowName")}",
+                FieldNum = Convert.ToInt32(EnumsgridView.GetRowCellValue(FocusEnumsIndex, "FieldNum")),
+                EnumsDescribe = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "EnumsDescribe")}",
                 Group = digroup
             };
+            FieldName = $"{EnumsgridView.GetRowCellValue(FocusEnumsIndex, "FieldName")}";
             if (EnumsGroupcheckedComboBoxEdit.Properties.Items.Count > 0)
             {
                 for (int i = 0; i < EnumsGroupcheckedComboBoxEdit.Properties.Items.Count; i++)
@@ -730,18 +735,16 @@ namespace DataBaseNotify.Views
                         var Table = IPdata.DataSheets.SingleOrDefault(g => g.DataSheetName == TableName);
                         if (Table != null)
                         {
-                            foreach (var Enumsitem in Table.Enumses)
+                            var Enumsitem = Table.Enumses.SingleOrDefault(g => g.FieldName == FieldName);
+                            if (Enumsitem.Group != null)
                             {
-                                if (Enumsitem.Group != null)
+                                foreach (var groupitem in Enumsitem.Group)
                                 {
-                                    foreach (var groupitem in Enumsitem.Group)
+                                    var data = dIs.SingleOrDefault(s => s.Index == groupitem);
+                                    if (data != null)
                                     {
-                                        var data = dIs.SingleOrDefault(s => s.Index == groupitem);
-                                        if (data != null)
-                                        {
-                                            int index = dIs.IndexOf(data);
-                                            EnumsGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
-                                        }
+                                        int index = dIs.IndexOf(data);
+                                        EnumsGroupcheckedComboBoxEdit.Properties.Items[index].CheckState = CheckState.Checked;
                                     }
                                 }
                             }

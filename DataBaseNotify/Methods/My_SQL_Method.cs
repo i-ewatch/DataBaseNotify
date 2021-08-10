@@ -136,7 +136,7 @@ namespace DataBaseNotify.Methods
                     {
                         if (TimeTypeEnum == "datetime")
                         {
-                            sql = $"SELECT {FieldName} FROM {DataBaseName}.{TableName} WHERE {TimeName} >= '{dateTime}'";
+                            sql = $"SELECT {FieldName} FROM {DataBaseName}.{TableName} WHERE {TimeName} >= '{dateTime:yyyy/MM/dd HH:mm:00}'";
                         }
                         else
                         {

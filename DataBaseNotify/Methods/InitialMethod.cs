@@ -247,15 +247,15 @@ namespace DataBaseNotify.Methods
                     string json = File.ReadAllText(SettingPath, Encoding.UTF8);
                     setting = JsonConvert.DeserializeObject<DataBaseSetting>(json);
                 }
-                else
-                {
-                    setting.DataBaseTypeEnum = 1;
-                    setting.DataSource = "127.0.0.1";
-                    setting.UserID = "root";
-                    setting.Password = "1234";
-                    string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
-                    File.WriteAllText(SettingPath, output);
-                }
+                //else
+                //{
+                //    setting.DataBaseTypeEnum = 1;
+                //    setting.DataSource = "127.0.0.1";
+                //    setting.UserID = "root";
+                //    setting.Password = "1234";
+                //    string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+                //    File.WriteAllText(SettingPath, output);
+                //}
             }
             catch (Exception ex)
             {
@@ -267,7 +267,7 @@ namespace DataBaseNotify.Methods
         /// 儲存資料庫資訊
         /// </summary>
         /// <param name="setting">資料庫資訊</param>
-        public static void Save_Point(DataBaseSetting setting)
+        public static void Save_DataBaset(DataBaseSetting setting)
         {
             string SettingPath = $"{MyWorkPath}\\stf\\DataBase.json";
             string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
@@ -347,6 +347,12 @@ namespace DataBaseNotify.Methods
                 Log.Error(ex, " 推播顯示旗標資訊載入錯誤");
             }
             return setting;
+        }
+        public static void Save_NotifyVisible(NotifyVisible setting)
+        {
+            string SettingPath = $"{MyWorkPath}\\stf\\NotifyVisible.json";
+            string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+            File.WriteAllText(SettingPath, output);
         }
         #endregion
     }

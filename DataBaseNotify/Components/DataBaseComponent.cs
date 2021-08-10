@@ -220,6 +220,8 @@ namespace DataBaseNotify.Components
                                         }
                                         #endregion
                                     }
+                                    AIIndex++;
+                                    Thread.Sleep(10);
                                 }
                                 foreach (var item in DataSheetitem.DIs)
                                 {
@@ -319,6 +321,8 @@ namespace DataBaseNotify.Components
                                         }
                                         #endregion
                                     }
+                                    DIIndex++;
+                                    Thread.Sleep(10);
                                 }
                                 foreach (var item in DataSheetitem.Enumses)
                                 {
@@ -335,46 +339,50 @@ namespace DataBaseNotify.Components
                                         foreach (var describeitem in describe)
                                         {
                                             string[] value = describeitem.Split('=');
-                                            describepairs.Add(Convert.ToInt32(value[0]), value[1]);
+                                            describepairs.Add(Convert.ToInt32(value[0].Trim()), value[1].Trim());
                                         }
-                                        if (Enumses[EnumsesIndex] != Convert.ToInt32(data.Value))
+                                        if (describepairs.ContainsKey(Convert.ToInt32(data.Value)))
                                         {
-                                            Enumses[EnumsesIndex] = Convert.ToInt32(data.Value);
-                                            string PointName = item.FieldName;
-                                            if (item.ShowName != "")
+                                            if (Enumses[EnumsesIndex] != Convert.ToInt32(data.Value))
                                             {
-                                                PointName = item.ShowName;
+                                                Enumses[EnumsesIndex] = Convert.ToInt32(data.Value);
+                                                string PointName = item.FieldName;
+                                                if (item.ShowName != "")
+                                                {
+                                                    PointName = item.ShowName;
+                                                }
+                                                MessageModule message = new MessageModule()
+                                                {
+                                                    PointTypeEnum = 2,
+                                                    DataBaseNum = DateBaseitem.DataBaseNum,
+                                                    DataSheetNum = DataSheetitem.DataSheetNum,
+                                                    FieldNum = item.FieldNum,
+                                                    DateTime = DateTime.Now,
+                                                    FieldName = PointName,
+                                                    Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
+                                                };
+                                                if (SystemSetting.TelegramFlag)
+                                                {
+                                                    HomeUserControl.TelePhoneMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                if (SystemSetting.LineFlag)
+                                                {
+                                                    HomeUserControl.LineNotifyMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                if (SystemSetting.TelegramFlag)
+                                                {
+                                                    HomeUserControl.TelegramMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                CsvMethod.Save_Csv($"{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName}", message);
                                             }
-                                            MessageModule message = new MessageModule()
-                                            {
-                                                PointTypeEnum = 2,
-                                                DataBaseNum = DateBaseitem.DataBaseNum,
-                                                DataSheetNum = DataSheetitem.DataSheetNum,
-                                                FieldNum = item.FieldNum,
-                                                DateTime = DateTime.Now,
-                                                FieldName = PointName,
-                                                Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
-                                            };
-                                            if (SystemSetting.TelegramFlag)
-                                            {
-                                                HomeUserControl.TelePhoneMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            if (SystemSetting.LineFlag)
-                                            {
-                                                HomeUserControl.LineNotifyMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            if (SystemSetting.TelegramFlag)
-                                            {
-                                                HomeUserControl.TelegramMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            CsvMethod.Save_Csv($"{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName}", message);
                                         }
                                         #endregion
                                     }
                                     EnumsesIndex++;
+                                    Thread.Sleep(10);
                                 }
                             }
                         }
@@ -516,6 +524,7 @@ namespace DataBaseNotify.Components
                                         #endregion
                                     }
                                     AIIndex++;
+                                    Thread.Sleep(10);
                                 }
                                 foreach (var item in DataSheetitem.DIs)
                                 {
@@ -616,6 +625,7 @@ namespace DataBaseNotify.Components
                                         #endregion
                                     }
                                     DIIndex++;
+                                    Thread.Sleep(10);
                                 }
                                 foreach (var item in DataSheetitem.Enumses)
                                 {
@@ -634,44 +644,48 @@ namespace DataBaseNotify.Components
                                             string[] value = describeitem.Split('=');
                                             describepairs.Add(Convert.ToInt32(value[0]), value[1]);
                                         }
-                                        if (Enumses[EnumsesIndex] != Convert.ToInt32(data.Value))
+                                        if (describepairs.ContainsKey(Convert.ToInt32(data.Value)))
                                         {
-                                            Enumses[EnumsesIndex] = Convert.ToInt32(data.Value);
-                                            string PointName = item.FieldName;
-                                            if (item.ShowName != "")
+                                            if (Enumses[EnumsesIndex] != Convert.ToInt32(data.Value))
                                             {
-                                                PointName = item.ShowName;
+                                                Enumses[EnumsesIndex] = Convert.ToInt32(data.Value);
+                                                string PointName = item.FieldName;
+                                                if (item.ShowName != "")
+                                                {
+                                                    PointName = item.ShowName;
+                                                }
+                                                MessageModule message = new MessageModule()
+                                                {
+                                                    PointTypeEnum = 2,
+                                                    DataBaseNum = DateBaseitem.DataBaseNum,
+                                                    DataSheetNum = DataSheetitem.DataSheetNum,
+                                                    FieldNum = item.FieldNum,
+                                                    DateTime = DateTime.Now,
+                                                    FieldName = PointName,
+                                                    Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
+                                                };
+                                                if (SystemSetting.TelegramFlag)
+                                                {
+                                                    HomeUserControl.TelePhoneMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                if (SystemSetting.LineFlag)
+                                                {
+                                                    HomeUserControl.LineNotifyMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                if (SystemSetting.TelegramFlag)
+                                                {
+                                                    HomeUserControl.TelegramMessage.Enqueue(message);
+                                                    Thread.Sleep(80);
+                                                }
+                                                CsvMethod.Save_Csv($"{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName}", message);
                                             }
-                                            MessageModule message = new MessageModule()
-                                            {
-                                                PointTypeEnum = 2,
-                                                DataBaseNum = DateBaseitem.DataBaseNum,
-                                                DataSheetNum = DataSheetitem.DataSheetNum,
-                                                FieldNum = item.FieldNum,
-                                                DateTime = DateTime.Now,
-                                                FieldName = PointName,
-                                                Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
-                                            };
-                                            if (SystemSetting.TelegramFlag)
-                                            {
-                                                HomeUserControl.TelePhoneMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            if (SystemSetting.LineFlag)
-                                            {
-                                                HomeUserControl.LineNotifyMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            if (SystemSetting.TelegramFlag)
-                                            {
-                                                HomeUserControl.TelegramMessage.Enqueue(message);
-                                                Thread.Sleep(80);
-                                            }
-                                            CsvMethod.Save_Csv($"{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName}", message);
                                         }
                                         #endregion
                                     }
                                     EnumsesIndex++;
+                                    Thread.Sleep(10);
                                 }
                             }
                         }

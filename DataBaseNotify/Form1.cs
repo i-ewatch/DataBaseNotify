@@ -326,7 +326,7 @@ namespace DataBaseNotify
 
             }
             Tokentimer.Enabled = false;
-            UserControl control = new UserControl() { Size = new Size(300, 100) };
+            UserControl control = new UserControl() { Size = new Size(300, 80) };
 
             SimpleButton cancelButton = new SimpleButton() { Dock = DockStyle.Right, Text = "Cancel", Size = new Size(150, 30) };
             cancelButton.DialogResult = DialogResult.Cancel;
@@ -336,8 +336,8 @@ namespace DataBaseNotify
             okButton.Parent = control;
 
             LabelControl labelControl = new LabelControl() { Dock = DockStyle.Top };
-            labelControl.Text = "Password";
-            labelControl.Appearance.Font = new Font("Tahoma", 28);
+            labelControl.Text = "Form Closing  Password";
+            labelControl.Appearance.Font = new Font("Tahoma", 18);
 
             TextEdit textEdit = new TextEdit() { Dock = DockStyle.Top };
             textEdit.Properties.UseSystemPasswordChar = true;
@@ -415,7 +415,7 @@ namespace DataBaseNotify
                         okButton.Parent = control;
 
                         LabelControl labelControl = new LabelControl() { Dock = DockStyle.Top };
-                        labelControl.Text = "Password";
+                        labelControl.Text = "Log in Password";
                         labelControl.Appearance.Font = new Font("Tahoma", 28);
 
                         TextEdit textEdit = new TextEdit() { Dock = DockStyle.Top };
