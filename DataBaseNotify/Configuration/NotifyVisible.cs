@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataBaseNotify.Configuration
+﻿namespace DataBaseNotify.Configuration
 {
     public class NotifyVisible
     {

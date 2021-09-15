@@ -5,11 +5,7 @@ using DataBaseNotify.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace DataBaseNotify.Components
 {
@@ -84,6 +80,7 @@ namespace DataBaseNotify.Components
                     {
                         break;
                     }
+                    #region MS_SQL
                     if (MS_SQL_Method != null)
                     {
                         foreach (var DateBaseitem in PointSettings)
@@ -387,6 +384,8 @@ namespace DataBaseNotify.Components
                             }
                         }
                     }
+                    #endregion
+                    #region My_SQL
                     else if (My_SQL_Method != null)
                     {
                         foreach (var DateBaseitem in PointSettings)
@@ -690,6 +689,7 @@ namespace DataBaseNotify.Components
                             }
                         }
                     }
+                    #endregion
                 }
                 else
                 {

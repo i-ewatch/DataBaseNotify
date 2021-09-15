@@ -4,9 +4,7 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DataBaseNotify.Methods
 {
@@ -307,7 +305,7 @@ namespace DataBaseNotify.Methods
         /// <summary>
         /// 儲存點位資訊
         /// </summary>
-        /// <param name="setting">簡訊資訊</param>
+        /// <param name="setting">點位資訊</param>
         public static void Save_Point(List<PointSetting> setting)
         {
             string SettingPath = $"{MyWorkPath}\\stf\\Point.json";
@@ -351,6 +349,47 @@ namespace DataBaseNotify.Methods
         public static void Save_NotifyVisible(NotifyVisible setting)
         {
             string SettingPath = $"{MyWorkPath}\\stf\\NotifyVisible.json";
+            string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+            File.WriteAllText(SettingPath, output);
+        }
+        #endregion
+        #region Slave點位資訊
+        /// <summary>
+        /// 載入Slave點位資訊
+        /// </summary>
+        /// <returns></returns>
+        public static List<SlavePointSetting> Load_SlavePoint()
+        {
+            List<SlavePointSetting> setting = new List<SlavePointSetting>();
+            if (!Directory.Exists($"{MyWorkPath}\\stf"))
+                Directory.CreateDirectory($"{MyWorkPath}\\stf");
+            string SettingPath = $"{MyWorkPath}\\stf\\SlavePoint.json";
+            try
+            {
+                if (File.Exists(SettingPath))
+                {
+                    string json = File.ReadAllText(SettingPath, Encoding.UTF8);
+                    setting = JsonConvert.DeserializeObject<List<SlavePointSetting>>(json);
+                }
+                else
+                {
+                    string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+                    File.WriteAllText(SettingPath, output);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, " Slave點位資訊載入錯誤");
+            }
+            return setting;
+        }
+        /// <summary>
+        /// 儲存Slave點位資訊
+        /// </summary>
+        /// <param name="setting">Slave資訊</param>
+        public static void Save_SlavePoint(List<SlavePointSetting> setting)
+        {
+            string SettingPath = $"{MyWorkPath}\\stf\\SlavePoint.json";
             string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
             File.WriteAllText(SettingPath, output);
         }

@@ -37,6 +37,10 @@ namespace DataBaseNotify.Views
             this.DataBasecomboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.Add_EnumssimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.Add_DIsimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.Add_AIsimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.Add_TimesimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.SearchFieldgridControl = new DevExpress.XtraGrid.GridControl();
             this.SearchFieldgridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -44,6 +48,10 @@ namespace DataBaseNotify.Views
             this.AIgridControl = new DevExpress.XtraGrid.GridControl();
             this.AIgridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.AIDeletesimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.TimeTabPage = new DevExpress.XtraTab.XtraTabPage();
+            this.TimegridControl = new DevExpress.XtraGrid.GridControl();
+            this.TimegridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.TimeDeletesimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.DITabPage = new DevExpress.XtraTab.XtraTabPage();
             this.DIgridControl = new DevExpress.XtraGrid.GridControl();
             this.DIgridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -52,14 +60,6 @@ namespace DataBaseNotify.Views
             this.EnumsgridControl = new DevExpress.XtraGrid.GridControl();
             this.EnumsgridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.EnumsDeletesimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.Add_TimesimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.Add_EnumssimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.Add_DIsimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.Add_AIsimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.TimeTabPage = new DevExpress.XtraTab.XtraTabPage();
-            this.TimegridControl = new DevExpress.XtraGrid.GridControl();
-            this.TimegridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TimeDeletesimpleButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TableNamecomboBoxEdit.Properties)).BeginInit();
@@ -73,15 +73,15 @@ namespace DataBaseNotify.Views
             this.AITabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AIgridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AIgridView)).BeginInit();
+            this.TimeTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TimegridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimegridView)).BeginInit();
             this.DITabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DIgridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DIgridView)).BeginInit();
             this.EnumsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnumsgridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnumsgridView)).BeginInit();
-            this.TimeTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TimegridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimegridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -201,13 +201,69 @@ namespace DataBaseNotify.Views
             this.panelControl2.Size = new System.Drawing.Size(451, 682);
             this.panelControl2.TabIndex = 2;
             // 
+            // Add_EnumssimpleButton
+            // 
+            this.Add_EnumssimpleButton.AllowFocus = false;
+            this.Add_EnumssimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Add_EnumssimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.Add_EnumssimpleButton.Appearance.Options.UseBackColor = true;
+            this.Add_EnumssimpleButton.Appearance.Options.UseFont = true;
+            this.Add_EnumssimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Add_EnumssimpleButton.Location = new System.Drawing.Point(318, 0);
+            this.Add_EnumssimpleButton.Name = "Add_EnumssimpleButton";
+            this.Add_EnumssimpleButton.Size = new System.Drawing.Size(106, 36);
+            this.Add_EnumssimpleButton.TabIndex = 11;
+            this.Add_EnumssimpleButton.Text = "Add Enums";
+            // 
+            // Add_DIsimpleButton
+            // 
+            this.Add_DIsimpleButton.AllowFocus = false;
+            this.Add_DIsimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Add_DIsimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.Add_DIsimpleButton.Appearance.Options.UseBackColor = true;
+            this.Add_DIsimpleButton.Appearance.Options.UseFont = true;
+            this.Add_DIsimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Add_DIsimpleButton.Location = new System.Drawing.Point(212, 0);
+            this.Add_DIsimpleButton.Name = "Add_DIsimpleButton";
+            this.Add_DIsimpleButton.Size = new System.Drawing.Size(106, 36);
+            this.Add_DIsimpleButton.TabIndex = 10;
+            this.Add_DIsimpleButton.Text = "Add DI";
+            // 
+            // Add_AIsimpleButton
+            // 
+            this.Add_AIsimpleButton.AllowFocus = false;
+            this.Add_AIsimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Add_AIsimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.Add_AIsimpleButton.Appearance.Options.UseBackColor = true;
+            this.Add_AIsimpleButton.Appearance.Options.UseFont = true;
+            this.Add_AIsimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Add_AIsimpleButton.Location = new System.Drawing.Point(106, 0);
+            this.Add_AIsimpleButton.Name = "Add_AIsimpleButton";
+            this.Add_AIsimpleButton.Size = new System.Drawing.Size(106, 36);
+            this.Add_AIsimpleButton.TabIndex = 9;
+            this.Add_AIsimpleButton.Text = "Add AI";
+            // 
+            // Add_TimesimpleButton
+            // 
+            this.Add_TimesimpleButton.AllowFocus = false;
+            this.Add_TimesimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Add_TimesimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.Add_TimesimpleButton.Appearance.Options.UseBackColor = true;
+            this.Add_TimesimpleButton.Appearance.Options.UseFont = true;
+            this.Add_TimesimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Add_TimesimpleButton.Location = new System.Drawing.Point(0, 0);
+            this.Add_TimesimpleButton.Name = "Add_TimesimpleButton";
+            this.Add_TimesimpleButton.Size = new System.Drawing.Size(106, 36);
+            this.Add_TimesimpleButton.TabIndex = 8;
+            this.Add_TimesimpleButton.Text = "Add Time";
+            // 
             // SearchFieldgridControl
             // 
             this.SearchFieldgridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SearchFieldgridControl.Location = new System.Drawing.Point(2, 34);
+            this.SearchFieldgridControl.Location = new System.Drawing.Point(0, 36);
             this.SearchFieldgridControl.MainView = this.SearchFieldgridView;
             this.SearchFieldgridControl.Name = "SearchFieldgridControl";
-            this.SearchFieldgridControl.Size = new System.Drawing.Size(447, 646);
+            this.SearchFieldgridControl.Size = new System.Drawing.Size(451, 646);
             this.SearchFieldgridControl.TabIndex = 2;
             this.SearchFieldgridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SearchFieldgridView});
@@ -229,7 +285,7 @@ namespace DataBaseNotify.Views
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.xtraTabControl1.Location = new System.Drawing.Point(457, 26);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.AITabPage;
+            this.xtraTabControl1.SelectedTabPage = this.TimeTabPage;
             this.xtraTabControl1.Size = new System.Drawing.Size(467, 682);
             this.xtraTabControl1.TabIndex = 3;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
@@ -276,6 +332,45 @@ namespace DataBaseNotify.Views
             this.AIDeletesimpleButton.Size = new System.Drawing.Size(465, 31);
             this.AIDeletesimpleButton.TabIndex = 2;
             this.AIDeletesimpleButton.Text = "Delete";
+            // 
+            // TimeTabPage
+            // 
+            this.TimeTabPage.Controls.Add(this.TimegridControl);
+            this.TimeTabPage.Controls.Add(this.TimeDeletesimpleButton);
+            this.TimeTabPage.Name = "TimeTabPage";
+            this.TimeTabPage.Size = new System.Drawing.Size(465, 650);
+            this.TimeTabPage.Text = "Time Point";
+            // 
+            // TimegridControl
+            // 
+            this.TimegridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TimegridControl.Location = new System.Drawing.Point(0, 31);
+            this.TimegridControl.MainView = this.TimegridView;
+            this.TimegridControl.Name = "TimegridControl";
+            this.TimegridControl.Size = new System.Drawing.Size(465, 619);
+            this.TimegridControl.TabIndex = 5;
+            this.TimegridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.TimegridView});
+            // 
+            // TimegridView
+            // 
+            this.TimegridView.GridControl = this.TimegridControl;
+            this.TimegridView.Name = "TimegridView";
+            this.TimegridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // TimeDeletesimpleButton
+            // 
+            this.TimeDeletesimpleButton.AllowFocus = false;
+            this.TimeDeletesimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.TimeDeletesimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 14F);
+            this.TimeDeletesimpleButton.Appearance.Options.UseBackColor = true;
+            this.TimeDeletesimpleButton.Appearance.Options.UseFont = true;
+            this.TimeDeletesimpleButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TimeDeletesimpleButton.Location = new System.Drawing.Point(0, 0);
+            this.TimeDeletesimpleButton.Name = "TimeDeletesimpleButton";
+            this.TimeDeletesimpleButton.Size = new System.Drawing.Size(465, 31);
+            this.TimeDeletesimpleButton.TabIndex = 4;
+            this.TimeDeletesimpleButton.Text = "Delete";
             // 
             // DITabPage
             // 
@@ -355,101 +450,6 @@ namespace DataBaseNotify.Views
             this.EnumsDeletesimpleButton.TabIndex = 3;
             this.EnumsDeletesimpleButton.Text = "Delete";
             // 
-            // Add_TimesimpleButton
-            // 
-            this.Add_TimesimpleButton.AllowFocus = false;
-            this.Add_TimesimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.Add_TimesimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.Add_TimesimpleButton.Appearance.Options.UseBackColor = true;
-            this.Add_TimesimpleButton.Appearance.Options.UseFont = true;
-            this.Add_TimesimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Add_TimesimpleButton.Location = new System.Drawing.Point(2, 2);
-            this.Add_TimesimpleButton.Name = "Add_TimesimpleButton";
-            this.Add_TimesimpleButton.Size = new System.Drawing.Size(106, 32);
-            this.Add_TimesimpleButton.TabIndex = 8;
-            this.Add_TimesimpleButton.Text = "Add Time";
-            // 
-            // Add_EnumssimpleButton
-            // 
-            this.Add_EnumssimpleButton.AllowFocus = false;
-            this.Add_EnumssimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.Add_EnumssimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.Add_EnumssimpleButton.Appearance.Options.UseBackColor = true;
-            this.Add_EnumssimpleButton.Appearance.Options.UseFont = true;
-            this.Add_EnumssimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Add_EnumssimpleButton.Location = new System.Drawing.Point(320, 2);
-            this.Add_EnumssimpleButton.Name = "Add_EnumssimpleButton";
-            this.Add_EnumssimpleButton.Size = new System.Drawing.Size(106, 32);
-            this.Add_EnumssimpleButton.TabIndex = 11;
-            this.Add_EnumssimpleButton.Text = "Add Enums";
-            // 
-            // Add_DIsimpleButton
-            // 
-            this.Add_DIsimpleButton.AllowFocus = false;
-            this.Add_DIsimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.Add_DIsimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.Add_DIsimpleButton.Appearance.Options.UseBackColor = true;
-            this.Add_DIsimpleButton.Appearance.Options.UseFont = true;
-            this.Add_DIsimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Add_DIsimpleButton.Location = new System.Drawing.Point(214, 2);
-            this.Add_DIsimpleButton.Name = "Add_DIsimpleButton";
-            this.Add_DIsimpleButton.Size = new System.Drawing.Size(106, 32);
-            this.Add_DIsimpleButton.TabIndex = 10;
-            this.Add_DIsimpleButton.Text = "Add DI";
-            // 
-            // Add_AIsimpleButton
-            // 
-            this.Add_AIsimpleButton.AllowFocus = false;
-            this.Add_AIsimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.Add_AIsimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.Add_AIsimpleButton.Appearance.Options.UseBackColor = true;
-            this.Add_AIsimpleButton.Appearance.Options.UseFont = true;
-            this.Add_AIsimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Add_AIsimpleButton.Location = new System.Drawing.Point(108, 2);
-            this.Add_AIsimpleButton.Name = "Add_AIsimpleButton";
-            this.Add_AIsimpleButton.Size = new System.Drawing.Size(106, 32);
-            this.Add_AIsimpleButton.TabIndex = 9;
-            this.Add_AIsimpleButton.Text = "Add AI";
-            // 
-            // TimeTabPage
-            // 
-            this.TimeTabPage.Controls.Add(this.TimegridControl);
-            this.TimeTabPage.Controls.Add(this.TimeDeletesimpleButton);
-            this.TimeTabPage.Name = "TimeTabPage";
-            this.TimeTabPage.Size = new System.Drawing.Size(465, 650);
-            this.TimeTabPage.Text = "Time Point";
-            // 
-            // TimegridControl
-            // 
-            this.TimegridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimegridControl.Location = new System.Drawing.Point(0, 31);
-            this.TimegridControl.MainView = this.TimegridView;
-            this.TimegridControl.Name = "TimegridControl";
-            this.TimegridControl.Size = new System.Drawing.Size(465, 619);
-            this.TimegridControl.TabIndex = 5;
-            this.TimegridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.TimegridView});
-            // 
-            // TimegridView
-            // 
-            this.TimegridView.GridControl = this.TimegridControl;
-            this.TimegridView.Name = "TimegridView";
-            this.TimegridView.OptionsView.ShowGroupPanel = false;
-            // 
-            // TimeDeletesimpleButton
-            // 
-            this.TimeDeletesimpleButton.AllowFocus = false;
-            this.TimeDeletesimpleButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.TimeDeletesimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 14F);
-            this.TimeDeletesimpleButton.Appearance.Options.UseBackColor = true;
-            this.TimeDeletesimpleButton.Appearance.Options.UseFont = true;
-            this.TimeDeletesimpleButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TimeDeletesimpleButton.Location = new System.Drawing.Point(0, 0);
-            this.TimeDeletesimpleButton.Name = "TimeDeletesimpleButton";
-            this.TimeDeletesimpleButton.Size = new System.Drawing.Size(465, 31);
-            this.TimeDeletesimpleButton.TabIndex = 4;
-            this.TimeDeletesimpleButton.Text = "Delete";
-            // 
             // SearchUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -472,15 +472,15 @@ namespace DataBaseNotify.Views
             this.AITabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AIgridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AIgridView)).EndInit();
+            this.TimeTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TimegridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimegridView)).EndInit();
             this.DITabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DIgridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DIgridView)).EndInit();
             this.EnumsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EnumsgridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnumsgridView)).EndInit();
-            this.TimeTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TimegridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TimegridView)).EndInit();
             this.ResumeLayout(false);
 
         }

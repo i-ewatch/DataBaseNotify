@@ -5,20 +5,13 @@ using DataBaseNotify.Modules;
 using DataBaseNotify.Views;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Docking2010.Customization;
-using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace DataBaseNotify

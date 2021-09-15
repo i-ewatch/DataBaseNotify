@@ -37,7 +37,7 @@ namespace DataBaseNotify.Configuration
         /// </summary>
         public string TimeTypeEnum { get; set; }
         /// <summary>
-        /// 資料表名稱
+        /// 資料表編號
         /// </summary>
         public int DataSheetNum { get; set; }
         /// <summary>
