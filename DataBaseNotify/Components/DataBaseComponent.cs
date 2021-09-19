@@ -117,7 +117,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，高於上限值:{item.MaxLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -157,7 +157,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，低於下限值:{item.MaxLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -197,7 +197,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，上限值:{item.MaxLimit}、下限值:{item.MinLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -254,7 +254,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{sendmessage}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -296,7 +296,7 @@ namespace DataBaseNotify.Components
                                                         FieldName = PointName,
                                                         Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，恢復正常"
                                                     };
-                                                    if (SystemSetting.TelegramFlag)
+                                                    if (SystemSetting.TelephoneFlag)
                                                     {
                                                         HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                         Thread.Sleep(80);
@@ -358,7 +358,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -422,7 +422,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，高於上限值:{item.MaxLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -462,7 +462,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，低於下限值:{item.MaxLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -502,7 +502,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，上限值:{item.MaxLimit}、下限值:{item.MinLimit}，目前數值: {data.Value.ToString("0.##")}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -559,7 +559,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{sendmessage}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
@@ -601,7 +601,7 @@ namespace DataBaseNotify.Components
                                                         FieldName = PointName,
                                                         Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，恢復正常"
                                                     };
-                                                    if (SystemSetting.TelegramFlag)
+                                                    if (SystemSetting.TelephoneFlag)
                                                     {
                                                         HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                         Thread.Sleep(80);
@@ -663,7 +663,7 @@ namespace DataBaseNotify.Components
                                                     FieldName = PointName,
                                                     Description = $"資料庫:{DateBaseitem.DataBaseName}.{DataSheetitem.DataSheetName} 的 {PointName} 點位，{describepairs[Enumses[EnumsesIndex]]}"
                                                 };
-                                                if (SystemSetting.TelegramFlag)
+                                                if (SystemSetting.TelephoneFlag)
                                                 {
                                                     HomeUserControl.TelePhoneMessage.Enqueue(message);
                                                     Thread.Sleep(80);
